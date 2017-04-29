@@ -1,4 +1,6 @@
-# The Eta Benchmarks Suite
+# The Eta Benchmark Suite
+
+[![Build Status](https://circleci.com/gh/typelead/eta-benchmarks.svg?style=shield&circle-token=97b838c8a686e8a33747d105d1713f970c381680)](https://circleci.com/gh/typelead/eta-benchmarks)
 
 This repository contains a set of performance tests used to properly measure how changes in the compiler affect performance. A big part of this suite consists of  the `nofib` benchmark suite along with benchmarks that are relevant for Eta.
 
