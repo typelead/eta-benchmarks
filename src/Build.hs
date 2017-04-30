@@ -11,6 +11,7 @@ import Control.Monad
 import Data.Char
 import Data.List
 import Data.Maybe
+import Data.Monoid((<>))
 import qualified Data.Map as M
 import Data.Time.Clock
 import qualified System.Directory as IO
@@ -445,7 +446,10 @@ readProcessWithExitCodeAndWorkingDirectory cwd cmd args input = do
   return (ex, out, err)
 
 sizeCmd :: [String] -> Action ()
-sizeCmd args = unit $ cmd "stat -f%z" args
+sizeCmd args = unit $ cmd ("stat " <> opt) args
+  where opt
+          | os == "darwin" = "-f%z"
+          | otherwise      = "-c%z"
 
 basePackages :: [String]
 basePackages = ["ghc-prim","integer","base", "rts"]
