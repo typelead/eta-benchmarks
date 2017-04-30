@@ -340,7 +340,7 @@ runTest nofib@Build {run = Just speed, ..} test = do
     statsStr <- readFile stats
     let statsLines = lines statsStr
         statsLen   = length statsLines
-    putStr $ unlines $ drop (statsLen - 2) statsLines
+    putStr $ unlines $ dropWhile (not . isPrefixOf "Benchmark") statsLines
     err <- return $
         if not skip_check && stderr /= stderrWant then
           "FAILED STDERR\nWANTED: " ++ snip stderrWant ++ "\nGOT: " ++ snip stderr
