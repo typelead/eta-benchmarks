@@ -10,8 +10,9 @@ The [Java Micobenchmarking Harness](http://openjdk.java.net/projects/code-tools/
 1. The benchmark is compiled into a JAR file.
 2. The `eta.main.main` method (the entry point into Eta programs) is invoked from the
    JMH framework.
-3. The JMH framework will fork a single JVM process and run the program 5 times for
-   warmup and 5 times for measurement and the average/error is calculated.
+3. The JMH framework will fork a single JVM process and run the program 10 times for
+   warmup and 10 times for measurement and the average/error is calculated.
+   - At the end of each iteration, GC is run and all static thunks are reset to unevaluated state.
 
 ## Getting Started
 
@@ -41,7 +42,7 @@ A standalone script will run the fast part of the suite, also run by CircleCI.
 A standalone script will run the slow part of the suite.
 
 ```
-./eta-benchmarks.sh
+./slow-benchmarks.sh
 ```
 
 If you want to do more fine-grained performance benchmarking, please see the remaining sections.
