@@ -16,4 +16,9 @@ The following were disabled because of exceeding the 4G memory limit on CircleCI
 - `shootout/pidigits`
 
 The following were disabled because of taking too much time:
+
 - `spectral/circsim`
+
+The following were disabled because of failure:
+
+- `imaginary/integrate` - The output is coming out as `--0.0` instead of `0.0`.
