@@ -30,7 +30,15 @@ stack install
 
 ### Quick Run
 
-A standalone script will run the entire suite without additional work.
+A standalone script will run the fast part of the suite, also run by CircleCI.
+
+```
+./eta-benchmarks.sh
+```
+
+## Slow Run
+
+A standalone script will run the slow part of the suite.
 
 ```
 ./eta-benchmarks.sh
