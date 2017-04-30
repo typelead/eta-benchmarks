@@ -2,6 +2,11 @@
 
 This file contains notes about benchmarks.
 
+# Enabled
+- `shootout/n-body` tickles the edge case in Eta's tail call handling - requires almost 285m of stack to work.
+
+# Disabled
+
 The following were disabled because of exceeding the 4G memory limit on CircleCI:
 
 - `imaginary/digits-of-e1`
