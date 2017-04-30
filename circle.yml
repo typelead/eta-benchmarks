@@ -6,6 +6,10 @@ machine:
   environment:
     PATH: ${HOME}/.local/bin:$PATH
 
+general:
+  artifacts:
+    - "_make"
+
 dependencies:
   cache_directories:
     - ~/.stack
@@ -23,3 +27,4 @@ dependencies:
 test:
   override:
     - ./eta-benchmarks.sh
+

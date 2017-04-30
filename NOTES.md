@@ -2,4 +2,8 @@
 
 This file contains notes about benchmarks.
 
-Currently, `imaginary/digits-of-e1` was disabled because of excessive memory usage.
+The following were disabled because of exceeding the 4G memory limit on CircleCI:
+
+- `imaginary/digits-of-e1`
+- `imaginary/digits-of-e2`
+- `shootout/pidigits`
