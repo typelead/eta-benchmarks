@@ -14,6 +14,7 @@ The following were disabled because of exceeding the 4G memory limit on CircleCI
 - `spectral/clausify`
 - `spectral/constraints`
 - `shootout/pidigits`
+- `shootout/n-body`
 
 The following were disabled because of taking too much time:
 
