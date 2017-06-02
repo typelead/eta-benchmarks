@@ -27,4 +27,5 @@ dependencies:
 test:
   override:
     - ./eta-benchmarks.sh
+    - ./slow-benchmarks.sh
 

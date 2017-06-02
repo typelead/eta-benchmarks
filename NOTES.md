@@ -3,7 +3,8 @@
 This file contains notes about benchmarks.
 
 # Enabled
-- `shootout/n-body` tickles the edge case in Eta's tail call handling - requires almost 285m of stack to work.
+
+None
 
 # Disabled
 
