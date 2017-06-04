@@ -181,8 +181,9 @@ main = do
             t i = if i == 1 then "1 test" else show i ++ " tests"
         if bad == 0 then
             putStrLn $ "Ran " ++ t tot ++ " successfully"
-          else
+          else do
             putStrLn $ "WARNING: " ++ t bad ++ " failed, out of " ++ t tot
+            exitFailure
 
 -- | Rules to build the given tests. For each test, there are three files
 --   we care about:
