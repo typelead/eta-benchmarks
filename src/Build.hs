@@ -148,10 +148,9 @@ resolveTests finds = do
 -- | Find the default compiler string, e.g. ghc-7.4.1
 compilerTag :: String -> IO String
 compilerTag compiler = do
-    (_,stdout,_) <- readProcessWithExitCode compiler ["--version"] ""
-    let ver = takeWhile (\x -> isDigit x || x == '.')
-            $ dropWhile (not . isDigit) stdout
-    return $ if null ver then "unknown" else ver
+    (_,ver',_) <- readProcessWithExitCode compiler ["--numeric-version"] ""
+    let ver = head . lines $ ver'
+    return $ if null ver then "unknown" else "eta-" ++ ver
 
 ---------------------------------------------------------------------
 -- MAIN DRIVER
