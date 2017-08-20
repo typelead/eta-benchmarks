@@ -4,7 +4,6 @@ This file contains notes about benchmarks.
 
 # Enabled
 
-None
 
 # Disabled
 
@@ -20,6 +19,7 @@ The following were disabled because of exceeding the 4G memory limit on CircleCI
 The following were disabled because of taking too much time:
 
 - `spectral/circsim`
+- `smp/threads001`
 
 The following were disabled because of failure:
 
