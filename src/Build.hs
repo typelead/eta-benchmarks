@@ -313,7 +313,7 @@ runTest nofib@Build {run = Just speed, ..} test = do
                 $ (output </> test </> "Out.jar")
                 : jmhJar : paths
       rtsArgs = "args=" ++ intercalate " " args
-      jmhArgs' = words "-wi 5 -i 5 -bm ss -bs 1 -tu ms -foe true -f 1"
+      jmhArgs' = words "-wi 5 -i 5 -bm sample -bs 1 -tu ms -foe true -f 1"
               ++ concat (map words jmh)
       jmhArgs = concat
               $ map (\(arg, val) -> [arg, val])
