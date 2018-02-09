@@ -123,7 +123,7 @@ public class PrimOps {
 
     static {
         try {
-          resumeFiber = loadClosure("eta_fibers_dev.control.concurrent.fiber.Internal", "resumeFiber");
+          resumeFiber = loadClosure("fibers_dev.control.concurrent.fiber.Internal", "resumeFiber");
         } catch (Exception e) {
             System.err.println("FATAL ERROR: Failed to load resumeFiber closure.");
             e.printStackTrace();
