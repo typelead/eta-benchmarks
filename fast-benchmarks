@@ -15,6 +15,7 @@ spectral/banner
 spectral/boyer
 spectral/boyer2
 spectral/calendar
+spectral/cichelli
 spectral/cryptarithm2
 spectral/fibheaps
 spectral/fish
@@ -24,7 +25,7 @@ spectral/lambda
 spectral/lcss
 spectral/life
 spectral/puzzle
-pectral/rewrite
+spectral/rewrite
 spectral/scc
 spectral/hartel/comp_lab_zift
 spectral/hartel/event
