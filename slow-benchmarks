@@ -12,5 +12,6 @@ spectral/primetest
 spectral/secretary
 spectral/sphere
 spectral/hartel/nucleic2
+spectral/hartel/transform
 shootout/n-body
 shootout/pidigits
