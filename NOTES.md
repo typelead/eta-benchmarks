@@ -31,3 +31,4 @@ The following were disabled because of failure:
 - `spectral/ansi` - Appears to require standard input (uses `interact`), but does not provide any input file.
 - `spectral/fft2` - Appears to have a wide variety of outputs - hard to test. May be that we have incorrect floating point results.
 - `spectral/mandel` - Generated pixmap is way off the expected output. Could be bug in Eta.
+- `spectral/multiplier` - Selector Thunk bug
