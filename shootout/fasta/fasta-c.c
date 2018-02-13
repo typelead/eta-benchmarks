@@ -78,7 +78,7 @@ static char *alu =
    "AGGCGGAGGTTGCAGTGAGCCGAGATCGCGCCACTGCACTCC"
    "AGCCTGGGCGACAGAGCGAGACTCCGTCTCAAAAA";
 
-inline unsigned int rnd(void) {
+static inline unsigned int rnd(void) {
    static unsigned rseed = 42;
    return rseed = (rseed * RA + RC) % RMAX;
 }
