@@ -8,5 +8,6 @@ spectral/integer
 spectral/last-piece
 spectral/mate
 spectral/power
+spectral/primetest
 shootout/n-body
 shootout/pidigits
