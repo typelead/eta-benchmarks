@@ -28,6 +28,7 @@ spectral/lambda
 spectral/lcss
 spectral/life
 spectral/mandel2
+spectral/minimax
 spectral/puzzle
 spectral/rewrite
 spectral/scc
