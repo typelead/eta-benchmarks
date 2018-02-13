@@ -24,3 +24,8 @@ The following were disabled because of taking too much time:
 The following were disabled because of failure:
 
 - `imaginary/integrate` - The output is coming out as `--0.0` instead of `0.0`.
+
+
+# Port Status from NoFib
+
+- `spectral/ansi` - Appears to require standard input (uses `interact`), but does not provide any input file.
