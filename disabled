@@ -1,4 +1,6 @@
 spectral/circsim
 spectral/multiplier
 spectral/para
+spectral/simple
+spectral/sorting
 imaginary/integrate
