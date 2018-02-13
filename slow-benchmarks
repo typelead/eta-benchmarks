@@ -1,6 +1,7 @@
 imaginary/digits-of-e1
 imaginary/digits-of-e2
-shootout/pidigits
 spectral/clausify
 spectral/constraints
+spectral/exact-reals
 shootout/n-body
+shootout/pidigits

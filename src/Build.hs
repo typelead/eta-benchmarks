@@ -357,10 +357,11 @@ runTest nofib@Build {run = Just speed, ..} test = do
                   , test </> takeFileName test <.> ext]
           ss <- filterM IO.doesFileExist s
           return $ listToMaybe ss
-        grab ext = maybe (return "") readFile =<< grabIn ext
-        getOutput str
-          | "@OUT@" `isPrefixOf` str = fst . break (== '@') $ drop 5 str
-          | otherwise = str
+        grab ext = fmap trim $ maybe (return "") readFile =<< grabIn ext
+        getOutput str = trim str'
+          where str'
+                  | "@OUT@" `isPrefixOf` str = fst . break (== '@') $ drop 5 str
+                  | otherwise = str
         overrideJMH args'@(arg:args)
           | head arg == '-' =
             case args of
@@ -465,3 +466,7 @@ searchForJars tag packages = do
 
 jmhJar :: FilePath
 jmhJar = "build/libs/eta-benchmarks-all.jar"
+
+trim :: String -> String
+trim = f . f
+   where f = reverse . dropWhile isSpace
