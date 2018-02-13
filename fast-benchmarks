@@ -18,6 +18,7 @@ spectral/calendar
 spectral/cichelli
 spectral/cryptarithm2
 spectral/cse
+spectral/eliza
 spectral/fibheaps
 spectral/fish
 spectral/gcd
