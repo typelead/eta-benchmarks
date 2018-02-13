@@ -3,7 +3,7 @@
 To try out JMH execution, you can run the following command in this directory:
 
 ```
-java -classpath "src/main/resources/Out.jar:target/benchmarks.jar" org.openjdk.jmh.Main [OPTS]
+java -classpath "../build/libs/eta-benchmarks-all.jar" org.openjdk.jmh.Main [OPTS]
 ```
 
 ## Reference

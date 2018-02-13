@@ -17,6 +17,7 @@ dependencies:
     - ~/.etlas
     - ~/.coursier
     - ~/eta
+    - ~/.gradle
 
   pre:
     - mkdir -p ~/.local/bin
@@ -26,6 +27,7 @@ dependencies:
 
 test:
   override:
-    - ./eta-benchmarks.sh
+    - ./init.sh
+    - ./fast-benchmarks.sh
     - ./slow-benchmarks.sh
 

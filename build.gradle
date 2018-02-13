@@ -1,0 +1,32 @@
+plugins {
+  id 'me.champeau.gradle.jmh' version '0.4.5'
+  id 'com.github.johnrengelman.shadow' version '2.0.2'
+  id 'java'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    jcenter()
+}
+
+jmh {
+  duplicateClassesStrategy = 'warn'
+}
+
+jmhJar {
+  exclude 'eta/main.class'
+  exclude 'eta/runtime/thunk/Thunk.class'
+}
+
+shadowJar {
+  from jmhJar.archivePath
+  configurations = [project.configurations.jmh]
+  dependsOn jmhJar
+}
+
+dependencies {
+    jmh 'org.openjdk.jmh:jmh-core:1.20'
+    jmh 'org.openjdk.jmh:jmh-generator-annprocess:1.20'
+}

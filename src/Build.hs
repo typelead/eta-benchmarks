@@ -208,15 +208,8 @@ buildRules Build {..} = do
                 | t <- tests, let s = output </> t ] ++ [jmhJar]
 
   jmhJar %> \out -> do
-    let tmpDir  = "jmh/src/main/resources"
-        tmpFile = tmpDir </> "Main.hs"
-        outFile = tmpDir </> "Out.jar"
-        pomFile = "jmh/pom.xml"
-    writeFile' tmpFile "main = print (1 :: Int)"
-    unit $ cmd "eta" ["-o", outFile] tmpFile
-    getDirectoryFiles "jmh/src/main/java" ["//*.java"]
-    need [pomFile]
-    unit $ cmd "mvn" ["-f", pomFile] "clean" "install"
+    need ["build.gradle", "src/jmh/java/com/typelead/EtaBenchmark.java"]
+    unit $ cmd "./gradlew" "shadowJar"
 
   "//config.txt" %> \out -> do
     let dir = unoutput out
@@ -305,7 +298,7 @@ runTest nofib@Build {run = Just speed, ..} test = do
 
       args = words (config $ map toUpper (show speed) ++ "_OPTS") ++ progArgs
   stdin <- let s = config "STDIN_FILE"
-           in if s == "" then grab "stdin" else readFile $ test </> s
+           in if s == "" then grabIn "stdin" else return . Just $ test </> s
   let stats = output </> test </> "stats.txt"
   -- TODO: Make this work on windows too.
   paths <- defaultLibPaths nofib config
@@ -313,6 +306,11 @@ runTest nofib@Build {run = Just speed, ..} test = do
                 $ (output </> test </> "Out.jar")
                 : jmhJar : paths
       rtsArgs = "args=" ++ intercalate " " args
+      stdInArgs
+        | Just path <- stdin
+        = ["-p", "inputFile=" ++ path]
+        | otherwise
+        = []
       jmhArgs' = words "-wi 5 -i 5 -bm sample -bs 1 -tu ms -foe true -f 1"
               ++ concat (map words jmh)
       jmhArgs = concat
@@ -328,9 +326,12 @@ runTest nofib@Build {run = Just speed, ..} test = do
          ++ jvmFlags
          ++ ["org.openjdk.jmh.Main"]
          ++ ["-p", rtsArgs]
+         ++ stdInArgs
          ++ ["-o", stats]
          ++ jmhArgs) -- -rff stats.csv
-        stdin
+        ""
+    writeFile (output </> test </> "rawstdout") stdout'
+    writeFile (output </> test </> "rawstderr") stderr'
     let stdout = getOutput stdout'
         stderr = getOutput stderr'
     stdoutWant <- grab "stdout"
@@ -351,11 +352,12 @@ runTest nofib@Build {run = Just speed, ..} test = do
         else ""
     if null err then return True else putStrLn err >> return False
   where snip x = if length x > 200 then take 200 x ++ "..." else x
-        grab ext = do
+        grabIn ext = do
           let s = [ test </> takeFileName test <.> map toLower (show speed) ++ ext
                   , test </> takeFileName test <.> ext]
           ss <- filterM IO.doesFileExist s
-          maybe (return "") readFile $ listToMaybe ss
+          return $ listToMaybe ss
+        grab ext = maybe (return "") readFile =<< grabIn ext
         getOutput str
           | "@OUT@" `isPrefixOf` str = fst . break (== '@') $ drop 5 str
           | otherwise = str
@@ -424,26 +426,7 @@ readProcessWithExitCodeAndWorkingDirectory
     -> String                   -- ^ standard input
     -> IO (ExitCode,String,String) -- ^ exitcode, stdout, stderr
 readProcessWithExitCodeAndWorkingDirectory cwd cmd args input = do
-  (Just inh, Just outh, Just errh, pid) <-
-    createProcess (proc cmd args) { cwd     = Just cwd
-                                  , std_in  = CreatePipe
-                                  , std_out = CreatePipe
-                                  , std_err = CreatePipe }
-  outMVar <- newEmptyMVar
-  out     <- hGetContents outh
-  _       <- forkIO $ evaluate (length out) >> putMVar outMVar ()
-  err     <- hGetContents errh
-  _       <- forkIO $ evaluate (length err) >> putMVar outMVar ()
-  when (not (null input)) $ do
-    hPutStr inh input
-    hFlush inh
-  hClose inh
-  takeMVar outMVar
-  takeMVar outMVar
-  hClose outh
-  hClose errh
-  ex <- waitForProcess pid
-  return (ex, out, err)
+  readCreateProcessWithExitCode ((proc cmd args) { cwd = Just cwd }) input
 
 sizeCmd :: [String] -> Action ()
 sizeCmd args = unit $ cmd ("stat " <> opt) args
@@ -481,4 +464,4 @@ searchForJars tag packages = do
     return $ packageDir </> jar
 
 jmhJar :: FilePath
-jmhJar = "jmh/target/benchmarks.jar"
+jmhJar = "build/libs/eta-benchmarks-all.jar"
