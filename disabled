@@ -4,4 +4,5 @@ spectral/multiplier
 spectral/para
 spectral/simple
 spectral/sorting
+spectral/treejoin
 imaginary/integrate
