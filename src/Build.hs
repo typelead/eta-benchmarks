@@ -358,8 +358,8 @@ runTest nofib@Build {run = Just speed, ..} test = do
           fmap (concat . fst) $
             globDir [compile (takeFileName test <.> map toLower (show speed) ++ ext ++ "*")
                     ,compile (takeFileName test <.> ext ++ "*")] test
-        anyMatch files target = any (== target) ("":files)
-        grab ext = traverse readFile =<< grabAll ext
+        anyMatch files target = any (== target) files
+        grab ext = fmap ("":) (traverse readFile =<< grabAll ext)
         getOutput str
           | "@OUT@" `isPrefixOf` str = fst . break (== '@') $ drop 5 str
           | otherwise = str
