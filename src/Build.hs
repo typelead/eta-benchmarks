@@ -231,11 +231,12 @@ buildRules Build {..} = do
       let out = jar
       -- Generate dummy inteface file for Out
       writeFile' (replaceExtension out "hi") ""
+      config <- readConfig' $ takeDirectory out </> "config.txt"
+      let javaSrcs = (words (config "JAVA_SRCS"))
       deps <- readFile' $ replaceExtension out "deps"
       let os = nub [ if isLower $ head $ takeFileName x then replaceExtension out "jar" else output </> x
                     | x <- words deps, takeExtension x == ".jar"]
       need os
-      config <- readConfig' $ takeDirectory out </> "config.txt"
       let dir = unoutput out
           obj = takeDirectory out
           name = takeFileName dir
@@ -244,7 +245,7 @@ buildRules Build {..} = do
                 ++ name ++ " follows..."
       unit $ cmd compiler
         $ ["-Rghc-timing", "-rtsopts", "-shared", "-o", out]
-        ++ os ++ way ++ words (config "HC_OPTS")
+        ++ os ++ javaSrcs ++ way ++ words (config "HC_OPTS")
       putNormal $ "==nofib== " ++ name ++ ": size of " ++ name ++ " follows..."
       sizeCmd [out]
     else do
@@ -381,7 +382,7 @@ runTest nofib@Build {run = Just speed, ..} test = do
 convertConfig :: [String] -> [String]
 convertConfig xs = [remap a ++ " = " ++ b | x <- xs, let (a,b) = separate x, a `elem` keep]
     where
-        keep = words "PROG_ARGS SRC_HC_OPTS SRC_RUNTEST_OPTS SLOW_OPTS NORM_OPTS FAST_OPTS STDIN_FILE HC_OPTS"
+        keep = words "PROG_ARGS SRC_HC_OPTS SRC_RUNTEST_OPTS SLOW_OPTS NORM_OPTS FAST_OPTS STDIN_FILE HC_OPTS JAVA_SRCS"
         remap "SRC_RUNTEST_OPTS" = "PROG_ARGS"
         remap "SRC_HC_OPTS" = "HC_OPTS"
         remap x = x
