@@ -1,5 +1,6 @@
 imaginary/bernouilli
 imaginary/exp3_8
+imaginary/gen_regexps
 imaginary/paraffins
 imaginary/primes
 imaginary/queens
@@ -8,7 +9,6 @@ imaginary/tak
 imaginary/wheel-sieve1
 imaginary/wheel-sieve2
 imaginary/x2n1
-imaginary/gen_regexps
 spectral/atom
 spectral/awards
 spectral/boyer2

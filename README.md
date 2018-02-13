@@ -17,16 +17,16 @@ The [Java Micobenchmarking Harness](http://openjdk.java.net/projects/code-tools/
 ## Getting Started
 
 ### Prerequisites
-- Maven
+- Gradle
 - JDK 1.7+
 - Eta
 
 ### Runner Installation
 
-First, install the runner:
+First, get setup:
 
 ```
-stack install
+./init.sh
 ```
 
 ### Quick Run
@@ -34,7 +34,7 @@ stack install
 A standalone script will run the fast part of the suite, also run by CircleCI.
 
 ```
-./eta-benchmarks.sh
+./fast-benchmarks.sh
 ```
 
 ## Slow Run
@@ -44,6 +44,23 @@ A standalone script will run the slow part of the suite.
 ```
 ./slow-benchmarks.sh
 ```
+
+## Run a Single Benchmark
+
+A single benchmark can be run:
+
+```
+./single-bench.sh [test-name] [measurement-iterations] [worker-iterations]
+
+```
+
+Example:
+
+```
+./single-bench.sh imaginary/bernouilli 10 5
+
+```
+This indicates 10 measurement iterations and 5 warmup iterations.
 
 If you want to do more fine-grained performance benchmarking, please see the remaining sections.
 
