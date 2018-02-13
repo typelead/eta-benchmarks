@@ -468,5 +468,7 @@ jmhJar :: FilePath
 jmhJar = "build/libs/eta-benchmarks-all.jar"
 
 trim :: String -> String
-trim = f . f
-   where f = reverse . dropWhile isSpace
+trim = id
+  -- Disabling trimming for now
+  -- f . f
+  --  where f = reverse . dropWhile isSpace

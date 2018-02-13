@@ -17,6 +17,7 @@ spectral/boyer2
 spectral/calendar
 spectral/cichelli
 spectral/cryptarithm2
+spectral/cse
 spectral/fibheaps
 spectral/fish
 spectral/gcd
