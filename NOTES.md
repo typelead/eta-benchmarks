@@ -34,3 +34,5 @@ The following were disabled because of failure:
 - `spectral/multiplier` - Selector Thunk bug
 
 - `shootout/k-nucleotide` - StackOverflowError in MemoryManager
+- `shootout/reverse-complement` - Missing eta/bytestring/Utils
+-

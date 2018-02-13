@@ -4,3 +4,6 @@ target/
 .gradle/
 build/
 *.hi
+fasta-c
+*.o
+revcomp-c
