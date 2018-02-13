@@ -7,5 +7,6 @@ spectral/exact-reals
 spectral/integer
 spectral/last-piece
 spectral/mate
+spectral/power
 shootout/n-body
 shootout/pidigits
