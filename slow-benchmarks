@@ -16,5 +16,6 @@ spectral/hartel/transform
 spectral/hartel/wave4main
 shootout/binary-trees
 shootout/fannkuch-redux
+shootout/fasta
 shootout/n-body
 shootout/pidigits
