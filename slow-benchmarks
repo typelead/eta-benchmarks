@@ -6,5 +6,6 @@ spectral/constraints
 spectral/exact-reals
 spectral/integer
 spectral/last-piece
+spectral/mate
 shootout/n-body
 shootout/pidigits
