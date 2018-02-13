@@ -4,5 +4,6 @@ imaginary/kahan
 spectral/clausify
 spectral/constraints
 spectral/exact-reals
+spectral/integer
 shootout/n-body
 shootout/pidigits
