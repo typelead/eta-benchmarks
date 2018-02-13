@@ -19,6 +19,7 @@ import System.Exit
 import System.Info
 import System.IO
 import System.Process
+import System.FilePath.Glob
 
 -- CmdArgs - argument parsing
 import System.Console.CmdArgs
@@ -334,8 +335,8 @@ runTest nofib@Build {run = Just speed, ..} test = do
     writeFile (output </> test </> "rawstderr") stderr'
     let stdout = getOutput stdout'
         stderr = getOutput stderr'
-    stdoutWant <- grab "stdout"
-    stderrWant <- grab "stderr"
+    stdoutWants <- grab "stdout"
+    stderrWants <- grab "stderr"
     writeFile (output </> test </> "stdout") stdout
     writeFile (output </> test </> "stderr") stderr
     statsStr <- readFile stats
@@ -343,25 +344,25 @@ runTest nofib@Build {run = Just speed, ..} test = do
         statsLen   = length statsLines
     putStr $ unlines $ dropWhile (not . isPrefixOf "Benchmark") statsLines
     err <- return $
-        if not skip_check && stderr /= stderrWant then
-          "FAILED STDERR\nWANTED: " ++ snip stderrWant ++ "\nGOT: " ++ snip stderr
-        else if not skip_check && stdout /= stdoutWant then
-          "FAILED STDOUT\nWANTED: " ++ snip stdoutWant ++ "\nGOT: " ++ snip stdout
+        if not skip_check && not (anyMatch stderrWants stderr) then
+          "FAILED STDERR\nWANTED: " ++ (snip (head stderrWants)) ++ "\nGOT: " ++ (snip stderr)
+        else if not skip_check && not (anyMatch stdoutWants stdout) then
+          "FAILED STDOUT\nWANTED: " ++ snip (head stdoutWants) ++ "\nGOT: " ++ snip stdout
         else if not skip_check && code /= ExitSuccess then
           "FAILED EXIT CODE " ++ show code
         else ""
     if null err then return True else putStrLn err >> return False
   where snip x = if length x > 200 then take 200 x ++ "..." else x
-        grabIn ext = do
-          let s = [ test </> takeFileName test <.> map toLower (show speed) ++ ext
-                  , test </> takeFileName test <.> ext]
-          ss <- filterM IO.doesFileExist s
-          return $ listToMaybe ss
-        grab ext = fmap trim $ maybe (return "") readFile =<< grabIn ext
-        getOutput str = trim str'
-          where str'
-                  | "@OUT@" `isPrefixOf` str = fst . break (== '@') $ drop 5 str
-                  | otherwise = str
+        grabIn ext = fmap listToMaybe $ grabAll ext
+        grabAll ext =
+          fmap (concat . fst) $
+            globDir [compile (takeFileName test <.> map toLower (show speed) ++ ext ++ "*")
+                    ,compile (takeFileName test <.> ext ++ "*")] test
+        anyMatch files target = any (== target) ("":files)
+        grab ext = traverse readFile =<< grabAll ext
+        getOutput str
+          | "@OUT@" `isPrefixOf` str = fst . break (== '@') $ drop 5 str
+          | otherwise = str
         overrideJMH args'@(arg:args)
           | head arg == '-' =
             case args of
@@ -466,9 +467,3 @@ searchForJars tag packages = do
 
 jmhJar :: FilePath
 jmhJar = "build/libs/eta-benchmarks-all.jar"
-
-trim :: String -> String
-trim = id
-  -- Disabling trimming for now
-  -- f . f
-  --  where f = reverse . dropWhile isSpace

@@ -32,4 +32,4 @@ fi
 
 git submodule sync
 git submodule update --init --recursive
-./install.sh
+echo "n" | ./install.sh
