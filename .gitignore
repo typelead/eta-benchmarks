@@ -7,3 +7,5 @@ build/
 fasta-c
 *.o
 revcomp-c
+classes
+__extras.jar
