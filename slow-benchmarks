@@ -3,6 +3,7 @@ imaginary/digits-of-e2
 imaginary/kahan
 spectral/clausify
 spectral/constraints
+spectral/cryptarithm1
 spectral/exact-reals
 spectral/integer
 spectral/last-piece
