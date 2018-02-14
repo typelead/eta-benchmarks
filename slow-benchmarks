@@ -20,3 +20,4 @@ shootout/fasta
 shootout/n-body
 shootout/pidigits
 shootout/spectral-norm
+conc/chan
