@@ -9,6 +9,8 @@ This file contains notes about benchmarks.
 
 The following were disabled because of exceeding the 4G memory limit on CircleCI:
 
+- `spectral/exact-reals` (Even on slow benchmarks)
+
 - `imaginary/digits-of-e1`
 - `imaginary/digits-of-e2`
 - `spectral/clausify`
@@ -35,4 +37,3 @@ The following were disabled because of failure:
 
 - `shootout/k-nucleotide` - StackOverflowError in MemoryManager
 - `shootout/reverse-complement` - Missing eta/bytestring/Utils
--
