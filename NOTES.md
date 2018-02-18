@@ -35,5 +35,7 @@ The following were disabled because of failure:
 - `spectral/mandel` - Generated pixmap is way off the expected output. Could be bug in Eta.
 - `spectral/multiplier` - Selector Thunk bug
 
+- `spectral/simple` - Output *mostly* matches. It seems like we need to use `strictfp` to make things consistent.
+
 - `shootout/k-nucleotide` - StackOverflowError in MemoryManager
 - `shootout/reverse-complement` - Missing eta/bytestring/Utils

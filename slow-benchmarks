@@ -7,6 +7,7 @@ spectral/cryptarithm1
 spectral/integer
 spectral/last-piece
 spectral/mate
+spectral/multiplier
 spectral/power
 spectral/primetest
 spectral/secretary
