@@ -4,7 +4,6 @@ imaginary/kahan
 spectral/clausify
 spectral/constraints
 spectral/cryptarithm1
-spectral/integer
 spectral/last-piece
 spectral/mate
 spectral/multiplier

@@ -1,5 +1,7 @@
 spectral/circsim
 spectral/exact-reals
+spectral/expert
+spectral/integer
 spectral/mandel
 spectral/para
 spectral/simple
