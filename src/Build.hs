@@ -288,7 +288,7 @@ runTest nofib@Build {run = Just speed, ..} test = do
   putStrLn $ "==nofib== " ++ takeDirectory1 test ++ ": time to run "
           ++ takeFileName test ++ " follows..."
   config <- readConfig $ output </> test </> "config.txt"
-  let totalArgs = (words (config "PROG_ARGS") ++ ["+RTS"] ++ concat (map words rts))
+  let totalArgs = filter (not . ("RTS" `isInfixOf`)) $ words (config "PROG_ARGS")
       (jvmFlags, progArgs) = stackHeapFlags totalArgs
       stackHeapFlags (x:xs)
         | "-M" `isPrefixOf` x = (("-Xmx" ++ drop 2 x) : ys, zs)
