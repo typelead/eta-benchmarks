@@ -36,6 +36,7 @@ The following were disabled because of failure:
 
 - `spectral/expert` - Weird exception about a directory
 - `spectral/integer` - Runs out of memory on CircleCI
+- `spectral/mate` - Runs out of memory on CircleCI
 
 - `spectral/simple` - Output *mostly* matches. It seems like we need to use `strictfp` to make things consistent.
 
