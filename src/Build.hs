@@ -356,7 +356,7 @@ runTest nofib@Build {run = Just speed, ..} test = do
   where snip x = if length x > 200 then take 200 x ++ "..." else x
         grabIn ext = fmap listToMaybe $ grabAll ext
         grabAll ext =
-          fmap (concat . fst) $
+          fmap concat $
             globDir [compile (takeFileName test <.> map toLower (show speed) ++ ext ++ "*")
                     ,compile (takeFileName test <.> ext ++ "*")] test
         anyMatch files target = any (== target) files
