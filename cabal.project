@@ -1,0 +1,6 @@
+packages: .
+extra-packages: transformers
+              , array
+              , containers
+              , bytestring
+              , random

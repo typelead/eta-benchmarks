@@ -1,0 +1,16 @@
+version: 2.0
+jobs:
+  build:
+    docker:
+    - image: typelead/eta:latest
+    steps:
+    - checkout
+    - run: ./init.sh
+    - run: ./fast-benchmarks.sh
+    - run: ./slow-benchmarks.sh
+
+workflows:
+  version: 2
+  full_cycle:
+    jobs:
+      - build

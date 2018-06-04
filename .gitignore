@@ -3,6 +3,7 @@ _make/
 target/
 .gradle/
 build/
+dist/
 *.hi
 fasta-c
 *.o

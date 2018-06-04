@@ -243,8 +243,10 @@ buildRules Build {..} = do
       -- TODO: Work on timing stats for the compiler
       putNormal $ "==nofib== " ++ name ++ " : time to link "
                 ++ name ++ " follows..."
+      storeDB <- fmap (\x -> x </> "store" </> tag </> "package.db")
+               $ liftIO $ IO.getAppUserDataDirectory "etlas"
       unit $ cmd compiler
-        $ ["-Rghc-timing", "-rtsopts", "-shared", "-o", out]
+        $ ["-Rghc-timing", "-rtsopts", "-shared", "-package-db", storeDB, "-o", out]
         ++ os ++ javaSrcs ++ way ++ words (config "HC_OPTS")
       putNormal $ "==nofib== " ++ name ++ ": size of " ++ name ++ " follows..."
       sizeCmd [out]
@@ -264,8 +266,10 @@ buildRules Build {..} = do
       let name = takeFileName dir
       putNormal $ "==nofib== " ++ name ++ " : time to compile "
               ++ mod ++ " follows..."
+      storeDB <- fmap (\x -> x </> "store" </> tag </> "package.db")
+               $ liftIO $ IO.getAppUserDataDirectory "etlas"
       unit $ cmd compiler $
-        [ "-Rghc-timing", "-c", src, "-w", "-i" ++ obj, "-odir=" ++ obj
+        [ "-Rghc-timing", "-c", src, "-w", "-i" ++ obj, "-package-db", storeDB, "-odir=" ++ obj
         , "-hidir=" ++ obj ]
         ++ way ++ words (config "HC_OPTS")
       putNormal $ "==nofib== " ++ name ++ ": size of "
@@ -275,8 +279,10 @@ buildRules Build {..} = do
   "//Out.deps" %> \out -> do
     let dir = unoutput out
     config <- readConfig' $ takeDirectory out </> "config.txt"
+    storeDB <- fmap (\x -> x </> "store" </> tag </> "package.db")
+              $ liftIO $ IO.getAppUserDataDirectory "etlas"
     unit $ cmd compiler $
-      ["-w", "-M", dir </> config "MAIN", "-i" ++ dir, "-dep-makefile=" ++ out]
+      ["-w", "-M", dir </> config "MAIN", "-i" ++ dir, "-package-db", storeDB, "-dep-makefile=" ++ out]
       ++ words (config "HC_OPTS")
     src <- liftIO $ readFile out
     need [x | x <- words src, takeExtension x `elem` [".hs",".lhs",".h"]]
@@ -450,18 +456,26 @@ defaultLibPaths Build {..} config = do
       filterPackageFlags _ = []
       extraPackages = filterPackageFlags $ words (config "HC_OPTS")
       packages = nub (basePackages ++ extraPackages)
-  searchForJars tag packages
+  xs <- searchForJars tag packages True
+  ys <- searchForJars tag packages False
+  return $ xs ++ ys
 
-searchForJars :: String -> [String] -> IO [String]
-searchForJars tag packages = do
-  libDir  <- fmap (\x -> x </> "lib") $ IO.getAppUserDataDirectory "etlas"
+searchForJars :: String -> [String] -> Bool -> IO [String]
+searchForJars tag packages inStore = do
+  let pref
+        | inStore = "store"
+        | otherwise = "lib"
+      extra f
+        | inStore = f </> "lib"
+        | otherwise = f
+  libDir  <- fmap (\x -> x </> pref) $ IO.getAppUserDataDirectory "etlas"
   libDir' <- fmap (head . filter (tag `isInfixOf`))
            $ IO.getDirectoryContents libDir
   let packagesDir = libDir </> libDir'
   packageDirs <- fmap (filter (\x -> any (`isInfixOf` x) packages))
                $ IO.getDirectoryContents packagesDir
   forM packageDirs $ \p -> do
-    let packageDir = packagesDir </> p
+    let packageDir = extra (packagesDir </> p)
     jar <- fmap (head . filter (".jar" `isSuffixOf`))
          $ IO.getDirectoryContents packageDir
     return $ packageDir </> jar
