@@ -1,4 +1,5 @@
 spectral/circsim
+spectral/hartel/event
 spectral/exact-reals
 spectral/expert
 spectral/integer
@@ -8,7 +9,6 @@ spectral/para
 spectral/simple
 spectral/sorting
 spectral/treejoin
-imaginary/integrate
 real/anna
 real/bspt
 real/cacheprof

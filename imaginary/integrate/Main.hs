@@ -39,5 +39,3 @@ etotal n = sum (take n es)
 main = do
 	[range] <- getArgs
 	putStrLn $ show $ etotal $ read range
-
-

@@ -1,6 +1,7 @@
 imaginary/bernouilli
 imaginary/exp3_8
 imaginary/gen_regexps
+imaginary/integrate
 imaginary/paraffins
 imaginary/primes
 imaginary/queens
@@ -32,7 +33,6 @@ spectral/puzzle
 spectral/rewrite
 spectral/scc
 spectral/hartel/comp_lab_zift
-spectral/hartel/event
 spectral/hartel/fft
 spectral/hartel/genfft
 spectral/hartel/ida
