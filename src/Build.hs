@@ -1,6 +1,6 @@
 -- Courtesy of Neil Mitchell:
 -- https://gist.github.com/ndmitchell/4733855
-{-# LANGUAGE RecordWildCards, DeriveDataTypeable #-}
+{-# LANGUAGE RecordWildCards, DeriveDataTypeable, BangPatterns #-}
 
 module Main (main) where
 
@@ -331,7 +331,7 @@ runTest nofib@Build {run = Just speed, ..} test = do
         "."
         "java"
         (["-classpath", classpath]
-         ++ jvmFlags
+         ++ jvmFlags ++ ["-XX:MaxJavaStackTraceDepth=-1"]
          ++ ["org.openjdk.jmh.Main"]
          ++ ["-p", rtsArgs]
          ++ stdInArgs
@@ -352,7 +352,7 @@ runTest nofib@Build {run = Just speed, ..} test = do
     putStr $ unlines $ dropWhile (not . isPrefixOf "Benchmark") statsLines
     err <- return $
         if not skip_check && not (anyMatch stderrWants stderr) then
-          "FAILED STDERR\nWANTED: " ++ (snip (head stderrWants)) ++ "\nGOT: " ++ (snip stderr)
+          "FAILED STDERR\nWANTED: " ++ snip (head stderrWants) ++ "\nGOT: " ++ snip stderr
         else if not skip_check && not (anyMatch stdoutWants stdout) then
           "FAILED STDOUT\nWANTED: " ++ snip (head stdoutWants) ++ "\nGOT: " ++ snip stdout
         else if not skip_check && code /= ExitSuccess then
@@ -368,8 +368,11 @@ runTest nofib@Build {run = Just speed, ..} test = do
         anyMatch files target = any (== target) files
         grab ext = fmap ("":) (traverse readFile =<< grabAll ext)
         getOutput str
-          | "@OUT@" `isPrefixOf` str = fst . break (== '@') $ drop 5 str
+          | "@OUT@" `isPrefixOf` str = go (drop 5 str) ""
           | otherwise = str
+          where go ('@':'O':'U':'T':'@':rest) !prev = reverse prev
+                go (c:cs) !prev = go cs (c:prev)
+                go [] !prev = reverse prev
         overrideJMH args'@(arg:args)
           | head arg == '-' =
             case args of
