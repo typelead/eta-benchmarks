@@ -33,11 +33,8 @@ The following were disabled because of failure:
 
 - `spectral/ansi` - Appears to require standard input (uses `interact`), but does not provide any input file.
 - `spectral/fft2` - Appears to have a wide variety of outputs - hard to test. May be that we have incorrect floating point results.
-- `spectral/mandel` - Generated pixmap is way off the expected output. Could be bug in Eta.
 
 - `spectral/expert` - Weird exception about a directory
-- `spectral/integer` - Runs out of memory on CircleCI
-- `spectral/mate` - Runs out of memory on CircleCI
 
 - `spectral/simple` - Output *mostly* matches. It seems like we need to use `strictfp` to make things consistent.
 

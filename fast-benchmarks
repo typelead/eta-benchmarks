@@ -27,11 +27,15 @@ spectral/knights
 spectral/lambda
 spectral/lcss
 spectral/life
+spectral/mandel
 spectral/mandel2
+spectral/mate
 spectral/minimax
+spectral/para
 spectral/puzzle
 spectral/rewrite
 spectral/scc
+spectral/sorting
 spectral/hartel/comp_lab_zift
 spectral/hartel/fft
 spectral/hartel/genfft
@@ -43,3 +47,4 @@ spectral/hartel/sched
 spectral/hartel/solid
 spectral/hartel/typecheck
 spectral/hartel/wang
+real/bspt

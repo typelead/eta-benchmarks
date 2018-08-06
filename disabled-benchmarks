@@ -2,15 +2,9 @@ spectral/circsim
 spectral/hartel/event
 spectral/exact-reals
 spectral/expert
-spectral/integer
-spectral/mandel
-spectral/mate
-spectral/para
 spectral/simple
-spectral/sorting
 spectral/treejoin
 real/anna
-real/bspt
 real/cacheprof
 real/compress
 shootout/k-nucleotide
