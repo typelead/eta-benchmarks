@@ -4,7 +4,7 @@ jobs:
     docker:
     - image: typelead/eta:latest
     environment:
-      JAVA_OPTS: -Xmx1500M -Xms1500M
+      JAVA_OPTS: -Xmx1G -Xms1G
     steps:
     - checkout
     - run: ./init.sh
