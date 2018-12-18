@@ -8,8 +8,14 @@ jobs:
     steps:
     - checkout
     - run: ./init.sh
-    - run: ./fast-benchmarks.sh
-    - run: ./slow-benchmarks.sh
+    - run:
+        name: Fast Benchmarks
+        command: ./fast-benchmarks.sh
+        no_output_timeout: 1h
+    - run:
+        name: Slow Benchmarks
+        command: ./slow-benchmarks.sh
+        no_output_timeout: 1h
 
 workflows:
   version: 2
