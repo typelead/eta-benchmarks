@@ -19,7 +19,7 @@ The [Java Micobenchmarking Harness](http://openjdk.java.net/projects/code-tools/
 ### Prerequisites
 - Gradle
 - JDK 1.7+
-- Eta
+- etlas
 
 ### Runner Installation
 
@@ -94,4 +94,4 @@ If you had trouble using this project, you can give us feedback by:
 
 - filing an [issue](https://github.com/typelead/eta-benchmarks/issues/new)
 
-- discussing with us on [Gitter](https://gitter.im/typelead/eta) 
+- discussing with us on [Gitter](https://gitter.im/typelead/eta)

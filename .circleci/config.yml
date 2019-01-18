@@ -7,14 +7,16 @@ jobs:
       JAVA_OPTS: -Xmx1G -Xms1G
     steps:
     - checkout
-    - run: ./init.sh
+    - run:
+        name: Init Benchmarks
+        command: ./scripts/init.sh
     - run:
         name: Fast Benchmarks
-        command: ./fast-benchmarks.sh
+        command: ./scripts/fast-benchmarks.sh
         no_output_timeout: 1h
     - run:
         name: Slow Benchmarks
-        command: ./slow-benchmarks.sh
+        command: ./scripts/slow-benchmarks.sh
         no_output_timeout: 1h
 
 workflows:

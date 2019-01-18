@@ -2,10 +2,9 @@
 
 This file contains notes about benchmarks.
 
-# Enabled
+Please check `./scripts/benchmarks` to see the current configuration.
 
-
-# Disabled
+## Disabled
 
 The following were disabled because of exceeding the 4G memory limit on CircleCI:
 
@@ -29,7 +28,7 @@ The following were disabled because of failure:
 - `spectral/hartel/event` - The runtime fails with a space leak
 
 
-# Port Status from NoFib
+## Port Status from NoFib
 
 - `spectral/ansi` - Appears to require standard input (uses `interact`), but does not provide any input file.
 - `spectral/fft2` - Appears to have a wide variety of outputs - hard to test. May be that we have incorrect floating point results.
