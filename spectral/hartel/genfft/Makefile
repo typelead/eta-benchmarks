@@ -1,7 +1,7 @@
 TOP = ../../..
 include $(TOP)/mk/boilerplate.mk
 
-SRC_HC_OPTS += -cpp -fglasgow-exts
+SRC_HC_OPTS += -cpp -XMagicHash
 
 FAST_OPTS = 7
 NORM_OPTS = 7
