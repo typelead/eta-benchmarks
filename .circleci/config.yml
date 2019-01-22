@@ -4,10 +4,12 @@ jobs:
     docker:
     - image: typelead/eta:latest
     environment:
-      JAVA_OPTS: -Xmx1G -Xms1G
+      ETA_JAVA_ARGS: -Xss512M -Xms1024M -Xmx1024M
     steps:
     - checkout
-    - run: ./scripts/init.sh
+    - run:
+        name: Init Bnechmarks
+        command: ./scripts/init.sh
     - run:
         name: Fast Benchmarks
         command: ./scripts/fast-benchmarks.sh
@@ -15,7 +17,7 @@ jobs:
     - run:
         name: Slow Benchmarks
         command: ./scripts/slow-benchmarks.sh
-        no_output_timeout: 1h
+        no_output_timeout: 2h
 
 workflows:
   version: 2
