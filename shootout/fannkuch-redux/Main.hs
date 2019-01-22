@@ -1,7 +1,7 @@
 {-  The Computer Language Benchmarks Game
     http://benchmarksgame.alioth.debian.org/
     contributed by Louis Wasserman
-    
+
     This should be compiled with:
     	-threaded -O2 -fexcess-precision -fasm
     and run with:
@@ -10,6 +10,7 @@
 
 import Control.Concurrent
 import Control.Monad
+import Data.Semigroup
 import System.Environment
 import Foreign hiding (rotate)
 
@@ -19,7 +20,10 @@ data F = F {-# UNPACK #-} !Int {-# UNPACK #-} !Int
 
 instance Monoid F where
 	mempty = F 0 0
-	F s1 m1 `mappend` F s2 m2 = F (s1 + s2) (max m1 m2)
+	mappend (F s1 m1) (F s2 m2) = F (s1 + s2) (max m1 m2)
+
+instance Semigroup F where
+        (<>) = undefined
 
 incPtr = (`advancePtr` 1)
 decPtr = (`advancePtr` (-1))
@@ -45,7 +49,7 @@ increment !p !ct = do
 	first <- peekElemOff p 1
 	pokeElemOff p 1 =<< peekElemOff p 0
 	pokeElemOff p 0 first
-	
+
 	let go !i !first = do
 		ci <- peekElemOff ct i
 		if fromIntegral ci < i then pokeElemOff ct i (ci+1) else do
@@ -54,7 +58,7 @@ increment !p !ct = do
 			moveArray p (incPtr p) i'
 			pokeElemOff p i' first
 			go i' =<< peekElemOff p 0
-	go 1 first  
+	go 1 first
 
 genPermutations :: Int -> Int -> Int -> Ptr Word8 -> Ptr Word8 -> IO F
 genPermutations !n !l !r !perm !count = allocaArray n $ \ destF -> do
@@ -63,7 +67,7 @@ genPermutations !n !l !r !perm !count = allocaArray n $ \ destF -> do
 		if p0 == 0 then increment perm count >> run f else do
 			copyArray destF perm n
 			increment perm count
-			flopS destF $ \ flops -> 
+			flopS destF $ \ flops ->
 				run (f `mappend` F (checksum j flops) flops)
 	let go j !f = if j >= r then return f else upd j f (go (j+1))
 	go l mempty
