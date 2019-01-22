@@ -19,14 +19,14 @@ The [Java Micobenchmarking Harness](http://openjdk.java.net/projects/code-tools/
 ### Prerequisites
 - Gradle
 - JDK 1.7+
-- Eta
+- etlas
 
 ### Runner Installation
 
 First, get setup:
 
 ```
-./init.sh
+./scripts/init.sh
 ```
 
 ### Quick Run
@@ -34,7 +34,7 @@ First, get setup:
 A standalone script will run the fast part of the suite, also run by CircleCI.
 
 ```
-./fast-benchmarks.sh
+./scripts/fast-benchmarks.sh
 ```
 
 ## Slow Run
@@ -42,7 +42,7 @@ A standalone script will run the fast part of the suite, also run by CircleCI.
 A standalone script will run the slow part of the suite.
 
 ```
-./slow-benchmarks.sh
+./scripts/slow-benchmarks.sh
 ```
 
 ## Run a Single Benchmark
@@ -50,14 +50,14 @@ A standalone script will run the slow part of the suite.
 A single benchmark can be run:
 
 ```
-./single-bench.sh [test-name] [measurement-iterations] [worker-iterations]
+./scripts/single-bench.sh [test-name] [measurement-iterations] [worker-iterations]
 
 ```
 
 Example:
 
 ```
-./single-bench.sh imaginary/bernouilli 10 5
+./scripts/single-bench.sh imaginary/bernouilli 10 5
 
 ```
 This indicates 10 measurement iterations and 5 warmup iterations.
@@ -94,4 +94,4 @@ If you had trouble using this project, you can give us feedback by:
 
 - filing an [issue](https://github.com/typelead/eta-benchmarks/issues/new)
 
-- discussing with us on [Gitter](https://gitter.im/typelead/eta) 
+- discussing with us on [Gitter](https://gitter.im/typelead/eta)
