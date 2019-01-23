@@ -8,16 +8,253 @@ jobs:
     steps:
     - checkout
     - run:
-        name: Init Bnechmarks
+        name: Init Benchmarks
         command: ./scripts/init.sh
     - run:
-        name: Fast Benchmarks
-        command: ./scripts/fast-benchmarks.sh
+        name: Broken - conc/chan
+        command: exit 0 #./scripts/single-bench.sh conc/chan 5 1
+    - run:
+        name: imaginary/bernouilli
+        command: ./scripts/single-bench.sh imaginary/bernouilli 5 1
+    - run:
+        name: Broken - imaginary/digits-of-e1
+        command: exit 0 #./scripts/single-bench.sh imaginary/digits-of-e1 5 1
+    - run:
+        name: imaginary/digits-of-e2
+        command: ./scripts/single-bench.sh imaginary/digits-of-e2 5 1
+    - run:
+        name: imaginary/gen_regexps
+        command: ./scripts/single-bench.sh imaginary/gen_regexps 5 1
+    - run:
+        name: imaginary/kahan
+        command: ./scripts/single-bench.sh imaginary/kahan 5 1
+    - run:
+        name: imaginary/paraffins
+        command: ./scripts/single-bench.sh imaginary/paraffins 5 1
+    - run:
+        name: imaginary/primes
+        command: ./scripts/single-bench.sh imaginary/primes 5 1
+    - run:
+        name: imaginary/queens
+        command: ./scripts/single-bench.sh imaginary/queens 5 1
+    - run:
+        name: imaginary/rfib
+        command: ./scripts/single-bench.sh imaginary/rfib 5 1
+    - run:
+        name: imaginary/tak
+        command: ./scripts/single-bench.sh imaginary/tak 5 1
+    - run:
+        name: imaginary/wheel-sieve1
+        command: ./scripts/single-bench.sh imaginary/wheel-sieve1 5 1
+    - run:
+        name: imaginary/wheel-sieve2
+        command: ./scripts/single-bench.sh imaginary/wheel-sieve2 5 1
+    - run:
+        name: imaginary/x2n1
+        command: ./scripts/single-bench.sh imaginary/x2n1 5 1
+    - run:
+        name: Broken - real/anna
+        command: exit 0 #./scripts/single-bench.sh real/anna 5 1
+    - run:
+        name: real/bspt
+        command: ./scripts/single-bench.sh real/bspt 5 1
+    - run:
+        name: Broken - real/cacheprof
+        command: exit 0 #./scripts/single-bench.sh real/cacheprof 5 1
+    - run:
+        name: Broken - real/compress
+        command: exit 0 #./scripts/single-bench.sh real/compress 5 1
+    - run:
+        name: shootout/binary-trees
+        command: ./scripts/single-bench.sh shootout/binary-trees 5 1
+    - run:
+        name: Broken - shootout/fannkuch-redux
+        command: exit 0 #./scripts/single-bench.sh shootout/fannkuch-redux 5 1
+    - run:
+        name: Broken - shootout/fasta
+        command: exit 0 #./scripts/single-bench.sh shootout/fasta 5 1
+    - run:
+        name: Broken - shootout/k-nucleotide
+        command: exit 0 #./scripts/single-bench.sh shootout/k-nucleotide 5 1
+    - run:
+        name: shootout/n-body
+        command: ./scripts/single-bench.sh shootout/n-body 5 1
+    - run:
+        name: Broken - shootout/pidigits
+        command: exit 0 #./scripts/single-bench.sh shootout/pidigits 5 1
+    - run:
+        name: shootout/spectral-norm
+        command: ./scripts/single-bench.sh shootout/spectral-norm 5 1
+    - run:
+        name: spectral/atom
+        command: ./scripts/single-bench.sh spectral/atom 5 1
+    - run:
+        name: spectral/awards
+        command: ./scripts/single-bench.sh spectral/awards 5 1
+    - run:
+        name: spectral/banner
+        command: ./scripts/single-bench.sh spectral/banner 5 1
+    - run:
+        name: Broken - spectral/boyer
+        command: exit 0 #./scripts/single-bench.sh spectral/boyer 5 1
+    - run:
+        name: spectral/boyer2
+        command: ./scripts/single-bench.sh spectral/boyer2 5 1
+    - run:
+        name: spectral/calendar
+        command: ./scripts/single-bench.sh spectral/calendar 5 1
+    - run:
+        name: spectral/cichelli
+        command: ./scripts/single-bench.sh spectral/cichelli 5 1
+    - run:
+        name: Slow - spectral/circsim
+        command: ./scripts/single-bench.sh spectral/circsim 5 1
         no_output_timeout: 1h
     - run:
-        name: Slow Benchmarks
-        command: ./scripts/slow-benchmarks.sh
-        no_output_timeout: 2h
+        name: spectral/clausify
+        command: ./scripts/single-bench.sh spectral/clausify 5 1
+    - run:
+        name: spectral/constraints
+        command: ./scripts/single-bench.sh spectral/constraints 5 1
+    - run:
+        name: Broken - spectral/cryptarithm1
+        command: exit 0 #./scripts/single-bench.sh spectral/cryptarithm1 5 1
+    - run:
+        name: Broken - spectral/cryptarithm2
+        command: exit 0 #./scripts/single-bench.sh spectral/cryptarithm2 5 1
+    - run:
+        name: spectral/cse
+        command: ./scripts/single-bench.sh spectral/cse 5 1
+    - run:
+        name: spectral/eliza
+        command: ./scripts/single-bench.sh spectral/eliza 5 1
+    - run:
+        name: Broken - spectral/exact-reals
+        command: exit 0 #./scripts/single-bench.sh spectral/exact-reals 5 1
+    - run:
+        name: Broken - spectral/expert
+        command: exit 0 #./scripts/single-bench.sh spectral/expert 5 1
+    - run:
+        name: spectral/fibheaps
+        command: ./scripts/single-bench.sh spectral/fibheaps 5 1
+    - run:
+        name: Broken - spectral/fish
+        command: exit 0 #./scripts/single-bench.sh spectral/fish 5 1
+    - run:
+        name: Broken - spectral/gcd
+        command: exit 0 #./scripts/single-bench.sh spectral/gcd 5 1
+    - run:
+        name: spectral/hartel/comp_lab_zift
+        command: ./scripts/single-bench.sh spectral/hartel/comp_lab_zift 5 1
+    - run:
+        name: spectral/hartel/event
+        command: ./scripts/single-bench.sh spectral/hartel/event 5 1
+    - run:
+        name: spectral/hartel/fft
+        command: ./scripts/single-bench.sh spectral/hartel/fft 5 1
+    - run:
+        name: spectral/hartel/genfft
+        command: ./scripts/single-bench.sh spectral/hartel/genfft 5 1
+    - run:
+        name: Broken - spectral/hartel/ida
+        command: exit 0 #./scripts/single-bench.sh spectral/hartel/ida 5 1
+    - run:
+        name: spectral/hartel/listcompr
+        command: ./scripts/single-bench.sh spectral/hartel/listcompr 5 1
+    - run:
+        name: spectral/hartel/listcopy
+        command: ./scripts/single-bench.sh spectral/hartel/listcopy 5 1
+    - run:
+        name: spectral/hartel/nucleic2
+        command: ./scripts/single-bench.sh spectral/hartel/nucleic2 5 1
+    - run:
+        name: spectral/hartel/parstof
+        command: ./scripts/single-bench.sh spectral/hartel/parstof 5 1
+    - run:
+        name: spectral/hartel/sched
+        command: ./scripts/single-bench.sh spectral/hartel/sched 5 1
+    - run:
+        name: spectral/hartel/solid
+        command: ./scripts/single-bench.sh spectral/hartel/solid 5 1
+    - run:
+        name: spectral/hartel/transform
+        command: ./scripts/single-bench.sh spectral/hartel/transform 5 1
+    - run:
+        name: spectral/hartel/typecheck
+        command: ./scripts/single-bench.sh spectral/hartel/typecheck 5 1
+    - run:
+        name: spectral/hartel/wang
+        command: ./scripts/single-bench.sh spectral/hartel/wang 5 1
+    - run:
+        name: spectral/hartel/wave4main
+        command: ./scripts/single-bench.sh spectral/hartel/wave4main 5 1
+    - run:
+        name: Broken - spectral/integer
+        command: exit 0 #./scripts/single-bench.sh spectral/integer 5 1
+    - run:
+        name: spectral/knights
+        command: ./scripts/single-bench.sh spectral/knights 5 1
+    - run:
+        name: spectral/lambda
+        command: ./scripts/single-bench.sh spectral/lambda 5 1
+    - run:
+        name: spectral/last-piece
+        command: ./scripts/single-bench.sh spectral/last-piece 5 1
+    - run:
+        name: spectral/lcss
+        command: ./scripts/single-bench.sh spectral/lcss 5 1
+    - run:
+        name: spectral/life
+        command: ./scripts/single-bench.sh spectral/life 5 1
+    - run:
+        name: Broken - spectral/mandel
+        command: exit 0 #./scripts/single-bench.sh spectral/mandel 5 1
+    - run:
+        name: spectral/mandel2
+        command: ./scripts/single-bench.sh spectral/mandel2 5 1
+    - run:
+        name: spectral/mate
+        command: ./scripts/single-bench.sh spectral/mate 5 1
+    - run:
+        name: spectral/minimax
+        command: ./scripts/single-bench.sh spectral/minimax 5 1
+    - run:
+        name: spectral/multiplier
+        command: ./scripts/single-bench.sh spectral/multiplier 5 1
+    - run:
+        name: spectral/para
+        command: ./scripts/single-bench.sh spectral/para 5 1
+        no_output_timeout: 1h
+    - run:
+        name: spectral/power
+        command: ./scripts/single-bench.sh spectral/power 5 1
+    - run:
+        name: spectral/primetest
+        command: ./scripts/single-bench.sh spectral/primetest 5 1
+    - run:
+        name: spectral/puzzle
+        command: ./scripts/single-bench.sh spectral/puzzle 5 1
+    - run:
+        name: spectral/rewrite
+        command: ./scripts/single-bench.sh spectral/rewrite 5 1
+    - run:
+        name: spectral/scc
+        command: ./scripts/single-bench.sh spectral/scc 5 1
+    - run:
+        name: Broken - spectral/secretary
+        command: exit 0 #./scripts/single-bench.sh spectral/secretary 5 1
+    - run:
+        name: Broken - spectral/simple
+        command: exit 0 #./scripts/single-bench.sh spectral/simple 5 1
+    - run:
+        name: spectral/sorting
+        command: ./scripts/single-bench.sh spectral/sorting 5 1
+    - run:
+        name: spectral/sphere
+        command: ./scripts/single-bench.sh spectral/sphere 5 1
+    - run:
+        name: Broken - spectral/treejoin
+        command: exit 0 #./scripts/single-bench.sh spectral/treejoin 5 1
 
 workflows:
   version: 2
