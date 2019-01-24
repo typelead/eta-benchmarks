@@ -222,7 +222,7 @@ jobs:
         name: spectral/multiplier
         command: ./scripts/single-bench.sh spectral/multiplier 5 1
     - run:
-        name: spectral/para
+        name: Slow - spectral/para
         command: ./scripts/single-bench.sh spectral/para 5 1
         no_output_timeout: 1h
     - run:
