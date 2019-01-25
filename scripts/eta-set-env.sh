@@ -1,1 +1,1 @@
-export ETA_JAVA_ARGS="-Xss512M -Xms1024M -Xmx1024M"
+export ETA_JAVA_ARGS="-Xss512M -Xms2048M -Xmx2048M"
