@@ -213,8 +213,8 @@ jobs:
         name: spectral/mandel2
         command: ./scripts/single-bench.sh spectral/mandel2 5 1
     - run:
-        name: spectral/mate
-        command: ./scripts/single-bench.sh spectral/mate 5 1
+        name: Broken - spectral/mate
+        command: exit 0 #./scripts/single-bench.sh spectral/mate 5 1
     - run:
         name: spectral/minimax
         command: ./scripts/single-bench.sh spectral/minimax 5 1
@@ -244,8 +244,8 @@ jobs:
         name: Broken - spectral/secretary
         command: exit 0 #./scripts/single-bench.sh spectral/secretary 5 1
     - run:
-        name: Broken - spectral/simple
-        command: exit 0 #./scripts/single-bench.sh spectral/simple 5 1
+        name: spectral/simple
+        command: ./scripts/single-bench.sh spectral/simple 5 1
     - run:
         name: spectral/sorting
         command: ./scripts/single-bench.sh spectral/sorting 5 1
