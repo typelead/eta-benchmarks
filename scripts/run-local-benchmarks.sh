@@ -22,7 +22,7 @@ WARMUP_ITERATIONS=1
 #./scripts/single-bench.sh real/anna ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh real/bspt ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 #./scripts/single-bench.sh real/cacheprof ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
-#./scripts/single-bench.sh real/compress ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
+./scripts/single-bench.sh real/compress ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh shootout/binary-trees ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh shootout/fannkuch-redux ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 #./scripts/single-bench.sh shootout/fasta ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}

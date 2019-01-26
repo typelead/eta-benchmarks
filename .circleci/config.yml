@@ -62,8 +62,8 @@ jobs:
         name: Broken - real/cacheprof
         command: exit 0 #./scripts/single-bench.sh real/cacheprof 5 1
     - run:
-        name: Broken - real/compress
-        command: exit 0 #./scripts/single-bench.sh real/compress 5 1
+        name: real/compress
+        command: ./scripts/single-bench.sh real/compress 5 1
     - run:
         name: shootout/binary-trees
         command: ./scripts/single-bench.sh shootout/binary-trees 5 1
