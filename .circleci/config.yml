@@ -207,8 +207,8 @@ jobs:
         name: spectral/life
         command: ./scripts/single-bench.sh spectral/life 5 1
     - run:
-        name: Broken - spectral/mandel
-        command: exit 0 #./scripts/single-bench.sh spectral/mandel 5 1
+        name: spectral/mandel
+        command: ./scripts/single-bench.sh spectral/mandel 5 1
     - run:
         name: spectral/mandel2
         command: ./scripts/single-bench.sh spectral/mandel2 5 1

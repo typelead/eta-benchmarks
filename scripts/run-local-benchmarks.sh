@@ -70,7 +70,7 @@ WARMUP_ITERATIONS=1
 ./scripts/single-bench.sh spectral/last-piece ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh spectral/lcss ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh spectral/life ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
-#./scripts/single-bench.sh spectral/mandel ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
+./scripts/single-bench.sh spectral/mandel ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh spectral/mandel2 ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh spectral/mate ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh spectral/minimax ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
