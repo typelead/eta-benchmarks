@@ -21,8 +21,6 @@ The [Java Micobenchmarking Harness](http://openjdk.java.net/projects/code-tools/
 - JDK 1.7+
 - etlas
 
-Note: Please consider to run `. ./scripts/eta-set-env.sh` to make sure your local env is set to the same env that is used in `./.circle/config.yml`.
-
 ### Runner Installation
 
 First, get setup:
