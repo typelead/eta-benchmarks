@@ -1,4 +1,4 @@
-. ./scripts/eta-set-env.sh
+#!/usr/bin/env sh
 
 MEASUREMENT_ITERATIONS=5
 WARMUP_ITERATIONS=1
@@ -63,7 +63,7 @@ WARMUP_ITERATIONS=1
 ./scripts/single-bench.sh spectral/hartel/transform ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh spectral/hartel/typecheck ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh spectral/hartel/wang ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
-#./scripts/single-bench.sh spectral/hartel/wave4main ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
+./scripts/single-bench.sh spectral/hartel/wave4main ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh spectral/integer ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh spectral/knights ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh spectral/lambda ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
