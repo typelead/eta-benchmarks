@@ -119,8 +119,8 @@ jobs:
         name: Broken - spectral/cryptarithm1
         command: exit 0 #./scripts/single-bench.sh spectral/cryptarithm1 5 1
     - run:
-        name: Broken - spectral/cryptarithm2
-        command: exit 0 #./scripts/single-bench.sh spectral/cryptarithm2 5 1
+        name: spectral/cryptarithm2
+        command: ./scripts/single-bench.sh spectral/cryptarithm2 5 1
     - run:
         name: spectral/cse
         command: ./scripts/single-bench.sh spectral/cse 5 1
@@ -140,8 +140,8 @@ jobs:
         name: Broken - spectral/fish
         command: exit 0 #./scripts/single-bench.sh spectral/fish 5 1
     - run:
-        name: Broken - spectral/gcd
-        command: exit 0 #./scripts/single-bench.sh spectral/gcd 5 1
+        name: spectral/gcd
+        command: ./scripts/single-bench.sh spectral/gcd 5 1
     - run:
         name: spectral/hartel/comp_lab_zift
         command: ./scripts/single-bench.sh spectral/hartel/comp_lab_zift 5 1
@@ -212,8 +212,8 @@ jobs:
         name: spectral/mandel2
         command: ./scripts/single-bench.sh spectral/mandel2 5 1
     - run:
-        name: Broken - spectral/mate
-        command: exit 0 #./scripts/single-bench.sh spectral/mate 5 1
+        name: spectral/mate
+        command: ./scripts/single-bench.sh spectral/mate 5 1
     - run:
         name: spectral/minimax
         command: ./scripts/single-bench.sh spectral/minimax 5 1
