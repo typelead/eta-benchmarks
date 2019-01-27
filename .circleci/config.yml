@@ -57,8 +57,8 @@ jobs:
         name: real/bspt
         command: ./scripts/single-bench.sh real/bspt 5 1
     - run:
-        name: Broken - real/cacheprof
-        command: exit 0 #./scripts/single-bench.sh real/cacheprof 5 1
+        name: real/cacheprof
+        command: ./scripts/single-bench.sh real/cacheprof 5 1
     - run:
         name: real/compress
         command: ./scripts/single-bench.sh real/compress 5 1
