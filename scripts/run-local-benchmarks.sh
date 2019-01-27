@@ -50,7 +50,7 @@ WARMUP_ITERATIONS=1
 ./scripts/single-bench.sh spectral/fish ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh spectral/gcd ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh spectral/hartel/comp_lab_zift ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
-#./scripts/single-bench.sh spectral/hartel/event ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
+./scripts/single-bench.sh spectral/hartel/event ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh spectral/hartel/fft ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh spectral/hartel/genfft ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 #./scripts/single-bench.sh spectral/hartel/ida ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
