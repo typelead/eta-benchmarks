@@ -3,8 +3,6 @@ jobs:
   build:
     docker:
     - image: typelead/eta:latest
-    environment:
-      ETA_JAVA_ARGS: -Xss512M -Xms2048M -Xmx2048M
     steps:
     - checkout
     - run:
