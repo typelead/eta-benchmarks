@@ -85,4 +85,4 @@ WARMUP_ITERATIONS=1
 ./scripts/single-bench.sh spectral/simple ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh spectral/sorting ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh spectral/sphere ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
-# NPE - ./scripts/single-bench.sh spectral/treejoin ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
+./scripts/single-bench.sh spectral/treejoin ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}

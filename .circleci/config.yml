@@ -255,8 +255,8 @@ jobs:
         name: spectral/sphere
         command: ./scripts/single-bench.sh spectral/sphere 5 1
     - run:
-        name: Broken - spectral/treejoin
-        command: exit 0 # NPE - ./scripts/single-bench.sh spectral/treejoin 5 1
+        name: spectral/treejoin
+        command: ./scripts/single-bench.sh spectral/treejoin 5 1
 
 workflows:
   version: 2
