@@ -95,8 +95,9 @@ jobs:
         name: spectral/banner
         command: ./scripts/single-bench.sh spectral/banner 5 1
     - run:
-        name: spectral/boyer
+        name: Slow - spectral/boyer
         command: ./scripts/single-bench.sh spectral/boyer 5 1
+        no_output_timeout: 1h
     - run:
         name: spectral/boyer2
         command: ./scripts/single-bench.sh spectral/boyer2 5 1
