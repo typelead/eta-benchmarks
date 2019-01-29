@@ -75,7 +75,7 @@ jobs:
     - run:
         name: Slow - shootout/k-nucleotide
         command: ./scripts/single-bench.sh shootout/k-nucleotide 5 1
-        no_output_timeout: 1h
+        no_output_timeout: 2h
     - run:
         name: shootout/n-body
         command: ./scripts/single-bench.sh shootout/n-body 5 1
