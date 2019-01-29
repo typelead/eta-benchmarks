@@ -51,8 +51,8 @@ jobs:
         name: imaginary/x2n1
         command: ./scripts/single-bench.sh imaginary/x2n1 5 1
     - run:
-        name: Broken - real/anna
-        command: exit 0 # NPE - ./scripts/single-bench.sh real/anna 5 1
+        name: real/anna
+        command: ./scripts/single-bench.sh real/anna 5 1
     - run:
         name: real/bspt
         command: ./scripts/single-bench.sh real/bspt 5 1

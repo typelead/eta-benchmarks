@@ -19,7 +19,7 @@ WARMUP_ITERATIONS=1
 ./scripts/single-bench.sh imaginary/wheel-sieve1 ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh imaginary/wheel-sieve2 ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh imaginary/x2n1 ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
-# NPE - ./scripts/single-bench.sh real/anna ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
+./scripts/single-bench.sh real/anna ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh real/bspt ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh real/cacheprof ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh real/compress ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
