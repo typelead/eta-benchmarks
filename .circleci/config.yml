@@ -10,13 +10,13 @@ jobs:
         command: ./scripts/init.sh
     - run:
         name: Broken - conc/chan
-        command: exit 0 #./scripts/single-bench.sh conc/chan 5 1
+        command: exit 0 # IllegalState - ./scripts/single-bench.sh conc/chan 5 1
     - run:
         name: imaginary/bernouilli
         command: ./scripts/single-bench.sh imaginary/bernouilli 5 1
     - run:
-        name: Broken - imaginary/digits-of-e1
-        command: exit 0 #./scripts/single-bench.sh imaginary/digits-of-e1 5 1
+        name: imaginary/digits-of-e1
+        command: ./scripts/single-bench.sh imaginary/digits-of-e1 5 1
     - run:
         name: imaginary/digits-of-e2
         command: ./scripts/single-bench.sh imaginary/digits-of-e2 5 1
@@ -52,7 +52,7 @@ jobs:
         command: ./scripts/single-bench.sh imaginary/x2n1 5 1
     - run:
         name: Broken - real/anna
-        command: exit 0 #./scripts/single-bench.sh real/anna 5 1
+        command: exit 0 # NPE - ./scripts/single-bench.sh real/anna 5 1
     - run:
         name: real/bspt
         command: ./scripts/single-bench.sh real/bspt 5 1
@@ -68,19 +68,19 @@ jobs:
         command: ./scripts/single-bench.sh shootout/binary-trees 5 1
     - run:
         name: Broken - shootout/fannkuch-redux
-        command: exit 0 #./scripts/single-bench.sh shootout/fannkuch-redux 5 1
+        command: exit 0 # IllegalState - ./scripts/single-bench.sh shootout/fannkuch-redux 5 1
     - run:
         name: Broken - shootout/fasta
-        command: exit 0 #./scripts/single-bench.sh shootout/fasta 5 1
+        command: exit 0 # Killed - ./scripts/single-bench.sh shootout/fasta 5 1
     - run:
-        name: Broken - shootout/k-nucleotide
-        command: exit 0 #./scripts/single-bench.sh shootout/k-nucleotide 5 1
+        name: shootout/k-nucleotide
+        command: ./scripts/single-bench.sh shootout/k-nucleotide 5 1
     - run:
         name: shootout/n-body
         command: ./scripts/single-bench.sh shootout/n-body 5 1
     - run:
         name: Broken - shootout/pidigits
-        command: exit 0 #./scripts/single-bench.sh shootout/pidigits 5 1
+        command: exit 0 # IllegalState - ./scripts/single-bench.sh shootout/pidigits 5 1
     - run:
         name: shootout/spectral-norm
         command: ./scripts/single-bench.sh shootout/spectral-norm 5 1
@@ -94,8 +94,8 @@ jobs:
         name: spectral/banner
         command: ./scripts/single-bench.sh spectral/banner 5 1
     - run:
-        name: Broken - spectral/boyer
-        command: exit 0 #./scripts/single-bench.sh spectral/boyer 5 1
+        name: spectral/boyer
+        command: ./scripts/single-bench.sh spectral/boyer 5 1
     - run:
         name: spectral/boyer2
         command: ./scripts/single-bench.sh spectral/boyer2 5 1
@@ -116,8 +116,8 @@ jobs:
         name: spectral/constraints
         command: ./scripts/single-bench.sh spectral/constraints 5 1
     - run:
-        name: Broken - spectral/cryptarithm1
-        command: exit 0 #./scripts/single-bench.sh spectral/cryptarithm1 5 1
+        name: spectral/cryptarithm1
+        command: ./scripts/single-bench.sh spectral/cryptarithm1 5 1
     - run:
         name: spectral/cryptarithm2
         command: ./scripts/single-bench.sh spectral/cryptarithm2 5 1
@@ -129,16 +129,16 @@ jobs:
         command: ./scripts/single-bench.sh spectral/eliza 5 1
     - run:
         name: Broken - spectral/exact-reals
-        command: exit 0 #./scripts/single-bench.sh spectral/exact-reals 5 1
+        command: exit 0 # IllegalState - ./scripts/single-bench.sh spectral/exact-reals 5 1
     - run:
         name: Broken - spectral/expert
-        command: exit 0 #./scripts/single-bench.sh spectral/expert 5 1
+        command: exit 0 # NPE - ./scripts/single-bench.sh spectral/expert 5 1
     - run:
         name: spectral/fibheaps
         command: ./scripts/single-bench.sh spectral/fibheaps 5 1
     - run:
         name: Broken - spectral/fish
-        command: exit 0 #./scripts/single-bench.sh spectral/fish 5 1
+        command: exit 0 # IllegalState - ./scripts/single-bench.sh spectral/fish 5 1
     - run:
         name: spectral/gcd
         command: ./scripts/single-bench.sh spectral/gcd 5 1
@@ -189,7 +189,7 @@ jobs:
         command: ./scripts/single-bench.sh spectral/hartel/wave4main 5 1
     - run:
         name: Broken - spectral/integer
-        command: exit 0 #./scripts/single-bench.sh spectral/integer 5 1
+        command: exit 0 # IllegalState - ./scripts/single-bench.sh spectral/integer 5 1
     - run:
         name: spectral/knights
         command: ./scripts/single-bench.sh spectral/knights 5 1
@@ -241,7 +241,7 @@ jobs:
         command: ./scripts/single-bench.sh spectral/scc 5 1
     - run:
         name: Broken - spectral/secretary
-        command: exit 0 #./scripts/single-bench.sh spectral/secretary 5 1
+        command: exit 0 # IllegalState - ./scripts/single-bench.sh spectral/secretary 5 1
     - run:
         name: spectral/simple
         command: ./scripts/single-bench.sh spectral/simple 5 1
@@ -253,7 +253,7 @@ jobs:
         command: ./scripts/single-bench.sh spectral/sphere 5 1
     - run:
         name: Broken - spectral/treejoin
-        command: exit 0 #./scripts/single-bench.sh spectral/treejoin 5 1
+        command: exit 0 # NPE - ./scripts/single-bench.sh spectral/treejoin 5 1
 
 workflows:
   version: 2
