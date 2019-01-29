@@ -73,8 +73,9 @@ jobs:
         name: Broken - shootout/fasta
         command: exit 0 # Killed - ./scripts/single-bench.sh shootout/fasta 5 1
     - run:
-        name: shootout/k-nucleotide
+        name: Slow - shootout/k-nucleotide
         command: ./scripts/single-bench.sh shootout/k-nucleotide 5 1
+        no_output_timeout: 1h
     - run:
         name: shootout/n-body
         command: ./scripts/single-bench.sh shootout/n-body 5 1
@@ -155,8 +156,9 @@ jobs:
         name: spectral/hartel/genfft
         command: ./scripts/single-bench.sh spectral/hartel/genfft 5 1
     - run:
-        name: Broken - spectral/hartel/ida
+        name: Broken - Slow - spectral/hartel/ida
         command: exit 0 #./scripts/single-bench.sh spectral/hartel/ida 5 1
+        no_output_timeout: 2h
     - run:
         name: spectral/hartel/listcompr
         command: ./scripts/single-bench.sh spectral/hartel/listcompr 5 1
