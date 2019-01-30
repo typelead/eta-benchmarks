@@ -57,8 +57,8 @@ jobs:
         name: real/bspt
         command: ./scripts/single-bench.sh real/bspt 5 1
     - run:
-        name: Slow - real/cacheprof
-        command: ./scripts/single-bench.sh real/cacheprof 5 1
+        name: Broken - Slow - real/cacheprof
+        command: exit 0 # 137 Out of mem - ./scripts/single-bench.sh real/cacheprof 5 1
         no_output_timeout: 1h
     - run:
         name: real/compress
@@ -68,20 +68,20 @@ jobs:
         command: ./scripts/single-bench.sh shootout/binary-trees 5 1
     - run:
         name: Broken - shootout/fannkuch-redux
-        command: exit 0 # IllegalState - ./scripts/single-bench.sh shootout/fannkuch-redux 5 1
+        command: exit 0 # 137 IllegalState - ./scripts/single-bench.sh shootout/fannkuch-redux 5 1
     - run:
         name: Broken - shootout/fasta
-        command: exit 0 # Killed - ./scripts/single-bench.sh shootout/fasta 5 1
+        command: exit 0 # 137 Killed - ./scripts/single-bench.sh shootout/fasta 5 1
     - run:
-        name: Slow - shootout/k-nucleotide
-        command: ./scripts/single-bench.sh shootout/k-nucleotide 5 1
+        name: Broken - Slow - shootout/k-nucleotide
+        command: exit 0 # Disabled - VERY Slow (1:45) - ./scripts/single-bench.sh shootout/k-nucleotide 5 1
         no_output_timeout: 2h
     - run:
         name: shootout/n-body
         command: ./scripts/single-bench.sh shootout/n-body 5 1
     - run:
         name: Broken - shootout/pidigits
-        command: exit 0 # IllegalState - ./scripts/single-bench.sh shootout/pidigits 5 1
+        command: exit 0 # 137 IllegalState - ./scripts/single-bench.sh shootout/pidigits 5 1
     - run:
         name: shootout/spectral-norm
         command: ./scripts/single-bench.sh shootout/spectral-norm 5 1
@@ -255,8 +255,8 @@ jobs:
         name: spectral/sphere
         command: ./scripts/single-bench.sh spectral/sphere 5 1
     - run:
-        name: Broken - spectral/treejoin
-        command: exit 0 # NPE - ./scripts/single-bench.sh spectral/treejoin 5 1
+        name: spectral/treejoin
+        command: ./scripts/single-bench.sh spectral/treejoin 5 1
 
 workflows:
   version: 2
