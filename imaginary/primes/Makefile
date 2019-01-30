@@ -3,7 +3,8 @@ include $(TOP)/mk/boilerplate.mk
 
 # Override default SRCS, or we get cseive.c as well.
 SRCS = Main.hs
-SRC_RUNTEST_OPTS = +RTS -K1200k -RTS
+
+SRC_RUNTEST_OPTS = +RTS -K512M -RTS
 
 include $(TOP)/mk/target.mk
 
