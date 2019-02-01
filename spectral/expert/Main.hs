@@ -34,8 +34,9 @@ main = do
     prog <- getProgName
     args <- getArgs
     case args of
-      [filename] -> getData filename
       []	 -> getData "spectral/expert/runtime_files/animals"
+      [""]	 -> getData "spectral/expert/runtime_files/animals"
+      [filename] -> getData filename
       _		 -> hPutStr stderr ("Usage: " ++ prog ++ " datafile\n")
 
 getData filename = do
