@@ -133,8 +133,8 @@ jobs:
         name: Broken - spectral/exact-reals
         command: exit 0 # IllegalState - ./scripts/single-bench.sh spectral/exact-reals 5 1
     - run:
-        name: Broken - spectral/expert
-        command: exit 0 # NPE - ./scripts/single-bench.sh spectral/expert 5 1
+        name: spectral/expert
+        command: ./scripts/single-bench.sh spectral/expert 5 1
     - run:
         name: spectral/fibheaps
         command: ./scripts/single-bench.sh spectral/fibheaps 5 1

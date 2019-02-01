@@ -45,7 +45,7 @@ WARMUP_ITERATIONS=1
 ./scripts/single-bench.sh spectral/cse ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh spectral/eliza ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh spectral/exact-reals ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
-# NPE - ./scripts/single-bench.sh spectral/expert ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
+./scripts/single-bench.sh spectral/expert ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh spectral/fibheaps ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh spectral/fish ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh spectral/gcd ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}

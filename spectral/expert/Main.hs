@@ -13,6 +13,9 @@ or whether the search should be continued for alternative solutions.
 ------------------------------------------------------------------------------}
 
 module Main where
+
+import Debug.Trace
+
 import Result
 import Table
 import Knowledge
@@ -34,12 +37,15 @@ main = do
     prog <- getProgName
     args <- getArgs
     case args of
-      [filename] -> getData filename
       []	 -> getData "spectral/expert/runtime_files/animals"
+      [""]	 -> getData "spectral/expert/runtime_files/animals"
+      [filename] -> getData filename
       _		 -> hPutStr stderr ("Usage: " ++ prog ++ " datafile\n")
 
 getData filename = do
+    trace "filename" $ traceIO filename
     contents <- readFile filename
+    trace "contents" $ traceIO contents
     interact (process contents)
 
 {- OLD 1.2:
