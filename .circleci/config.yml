@@ -243,8 +243,8 @@ jobs:
         name: spectral/scc
         command: ./scripts/single-bench.sh spectral/scc 5 1
     - run:
-        name: Broken - spectral/secretary
-        command: exit 0 # IllegalState - ./scripts/single-bench.sh spectral/secretary 5 1
+        name: spectral/secretary
+        command: ./scripts/single-bench.sh spectral/secretary 5 1
     - run:
         name: spectral/simple
         command: ./scripts/single-bench.sh spectral/simple 5 1
