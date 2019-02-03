@@ -82,8 +82,8 @@ jobs:
         name: shootout/n-body
         command: ./scripts/single-bench.sh shootout/n-body 5 1
     - run:
-        name: Broken - shootout/pidigits
-        command: exit 0 # 137 IllegalState - ./scripts/single-bench.sh shootout/pidigits 5 1
+        name: shootout/pidigits
+        command: ./scripts/single-bench.sh shootout/pidigits 5 1
     - run:
         name: shootout/spectral-norm
         command: ./scripts/single-bench.sh shootout/spectral-norm 5 1
