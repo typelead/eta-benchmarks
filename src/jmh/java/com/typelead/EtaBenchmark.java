@@ -31,7 +31,12 @@ public class EtaBenchmark {
 
     @Setup(Level.Trial)
     public void setup() throws IOException {
-        _args = args.split(" ");
+        if (args.length() > 0) {
+            _args = args.split(" ");
+        } else {
+            _args = new String[0];
+        }
+
         if (inputFile != null && inputFile.length() > 0) {
             inputBytes = Files.readAllBytes(Paths.get(inputFile));
             setInput = true;
