@@ -157,7 +157,7 @@ main :: IO ()
 
 main = do
     raw_args <- getArgs
-    let cmd_line_args = maGetFlags $ filter (not . null) raw_args
+    let cmd_line_args = maGetFlags raw_args
     tableStr <- readFile ("real/anna/runtime_files/anna_table")
     file_contents <- getContents
     let table = rtReadTable tableStr
