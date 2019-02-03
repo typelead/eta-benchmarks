@@ -2,7 +2,7 @@ version: 2.0
 jobs:
   build:
     docker:
-    - image: typelead/eta:latest
+    - image: typelead/eta:0.8.6b4
     steps:
     - checkout
     - run:
