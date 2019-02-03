@@ -139,8 +139,8 @@ jobs:
         name: spectral/fibheaps
         command: ./scripts/single-bench.sh spectral/fibheaps 5 1
     - run:
-        name: Broken - spectral/fish
-        command: exit 0 # IllegalState - ./scripts/single-bench.sh spectral/fish 5 1
+        name: spectral/fish
+        command: ./scripts/single-bench.sh spectral/fish 5 1
     - run:
         name: spectral/gcd
         command: ./scripts/single-bench.sh spectral/gcd 5 1
