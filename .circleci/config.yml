@@ -11,8 +11,8 @@ jobs:
         name: Init Benchmarks
         command: ./scripts/init.sh
     - run:
-        name: Broken - conc/chan
-        command: exit 0 # IllegalState - ./scripts/single-bench.sh conc/chan 5 1
+        name: conc/chan
+        command: ./scripts/single-bench.sh conc/chan 5 1
     - run:
         name: imaginary/bernouilli
         command: ./scripts/single-bench.sh imaginary/bernouilli 5 1
@@ -69,8 +69,8 @@ jobs:
         name: shootout/binary-trees
         command: ./scripts/single-bench.sh shootout/binary-trees 5 1
     - run:
-        name: Broken - shootout/fannkuch-redux
-        command: exit 0 # 137 IllegalState - ./scripts/single-bench.sh shootout/fannkuch-redux 5 1
+        name: shootout/fannkuch-redux
+        command: ./scripts/single-bench.sh shootout/fannkuch-redux 5 1
     - run:
         name: Broken - shootout/fasta
         command: exit 0 # 137 Killed - ./scripts/single-bench.sh shootout/fasta 5 1
@@ -132,8 +132,8 @@ jobs:
         name: spectral/eliza
         command: ./scripts/single-bench.sh spectral/eliza 5 1
     - run:
-        name: Broken - spectral/exact-reals
-        command: exit 0 # IllegalState - ./scripts/single-bench.sh spectral/exact-reals 5 1
+        name: spectral/exact-reals
+        command: ./scripts/single-bench.sh spectral/exact-reals 5 1
     - run:
         name: spectral/expert
         command: ./scripts/single-bench.sh spectral/expert 5 1
