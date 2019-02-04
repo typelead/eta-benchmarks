@@ -132,8 +132,8 @@ jobs:
         name: spectral/eliza
         command: ./scripts/single-bench.sh spectral/eliza 5 1
     - run:
-        name: Broken - spectral/exact-reals
-        command: exit 0 # IllegalState - ./scripts/single-bench.sh spectral/exact-reals 5 1
+        name: spectral/exact-reals
+        command: ./scripts/single-bench.sh spectral/exact-reals 5 1
     - run:
         name: spectral/expert
         command: ./scripts/single-bench.sh spectral/expert 5 1
