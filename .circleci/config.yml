@@ -3,6 +3,8 @@ jobs:
   build:
     docker:
     - image: typelead/eta:0.8.6b4
+    env:
+    - ETA_JAVA_ARGS: -Xms1024M -Xmx1024M
     steps:
     - checkout
     - run:
