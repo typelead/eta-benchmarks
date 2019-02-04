@@ -11,8 +11,8 @@ jobs:
         name: Init Benchmarks
         command: ./scripts/init.sh
     - run:
-        name: Broken - conc/chan
-        command: exit 0 # IllegalState - ./scripts/single-bench.sh conc/chan 5 1
+        name: conc/chan
+        command: ./scripts/single-bench.sh conc/chan 5 1
     - run:
         name: imaginary/bernouilli
         command: ./scripts/single-bench.sh imaginary/bernouilli 5 1
