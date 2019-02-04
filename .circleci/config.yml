@@ -69,8 +69,8 @@ jobs:
         name: shootout/binary-trees
         command: ./scripts/single-bench.sh shootout/binary-trees 5 1
     - run:
-        name: Broken - shootout/fannkuch-redux
-        command: exit 0 # 137 IllegalState - ./scripts/single-bench.sh shootout/fannkuch-redux 5 1
+        name: shootout/fannkuch-redux
+        command: ./scripts/single-bench.sh shootout/fannkuch-redux 5 1
     - run:
         name: Broken - shootout/fasta
         command: exit 0 # 137 Killed - ./scripts/single-bench.sh shootout/fasta 5 1
