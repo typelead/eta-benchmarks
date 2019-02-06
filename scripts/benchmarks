@@ -1,5 +1,6 @@
 disabled real/cacheprof
 disabled shootout/fasta
+disabled spectral/fish
 fast conc/chan
 fast imaginary/bernouilli
 fast imaginary/digits-of-e1
@@ -38,7 +39,6 @@ fast spectral/cse
 fast spectral/eliza
 fast spectral/expert
 fast spectral/fibheaps
-fast spectral/fish
 fast spectral/gcd
 fast spectral/hartel/comp_lab_zift
 fast spectral/hartel/event
