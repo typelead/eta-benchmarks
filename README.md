@@ -10,9 +10,8 @@ The [Java Micobenchmarking Harness](http://openjdk.java.net/projects/code-tools/
 1. The benchmark is compiled into a JAR file.
 2. The `eta.main.main` method (the entry point into Eta programs) is invoked from the
    JMH framework.
-3. The JMH framework will fork a single JVM process and run the program 10 times for
-   warmup and 10 times for measurement and the average/error is calculated.
-   - At the end of each iteration, GC is run and all static thunks are reset to unevaluated state.
+3. The JMH framework will fork a single JVM process and run the program a number of times
+   for warmup and a number of times for measurement and the average/error is calculated. At the end of each iteration, GC is run and all static thunks are reset to unevaluated state.
 
 ## Getting Started
 
@@ -26,7 +25,7 @@ The [Java Micobenchmarking Harness](http://openjdk.java.net/projects/code-tools/
 First, get setup:
 
 ```
-./scripts/init.sh
+$ ./scripts/init.sh
 ```
 
 ### Quick Run
@@ -34,7 +33,7 @@ First, get setup:
 A standalone script will run the fast part of the suite, also run by CircleCI.
 
 ```
-./scripts/fast-benchmarks.sh
+$ ./scripts/fast-benchmarks.sh
 ```
 
 ## Slow Run
@@ -42,7 +41,7 @@ A standalone script will run the fast part of the suite, also run by CircleCI.
 A standalone script will run the slow part of the suite.
 
 ```
-./scripts/slow-benchmarks.sh
+$ ./scripts/slow-benchmarks.sh
 ```
 
 ## Run a Single Benchmark
@@ -50,8 +49,7 @@ A standalone script will run the slow part of the suite.
 A single benchmark can be run:
 
 ```
-./scripts/single-bench.sh [test-name] [measurement-iterations] [worker-iterations]
-
+./scripts/single-bench.sh [test-name] [measurement-iterations] [warmup-iterations]
 ```
 
 Example:
@@ -61,6 +59,8 @@ Example:
 
 ```
 This indicates 10 measurement iterations and 5 warmup iterations.
+
+Note: You can also pass `--skip-check` as a parameter to skip the checking of the test output.
 
 If you want to do more fine-grained performance benchmarking, please see the remaining sections.
 
