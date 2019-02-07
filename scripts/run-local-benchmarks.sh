@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+export ETA_JAVA_ARGS='-Xms1024M -Xmx1024M'
+
 MEASUREMENT_ITERATIONS=5
 WARMUP_ITERATIONS=1
 
@@ -25,8 +27,8 @@ WARMUP_ITERATIONS=1
 ./scripts/single-bench.sh real/compress ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh shootout/binary-trees ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh shootout/fannkuch-redux ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
-# Unknown - Slow - ./scripts/single-bench.sh shootout/fasta ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
-# Unknown - slow - ./scripts/single-bench.sh shootout/k-nucleotide ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
+./scripts/single-bench.sh shootout/fasta ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
+./scripts/single-bench.sh shootout/k-nucleotide ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh shootout/n-body ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh shootout/pidigits ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh shootout/spectral-norm ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
@@ -53,7 +55,7 @@ WARMUP_ITERATIONS=1
 ./scripts/single-bench.sh spectral/hartel/event ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh spectral/hartel/fft ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh spectral/hartel/genfft ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
-# Unknown - Slow - ./scripts/single-bench.sh spectral/hartel/ida ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
+./scripts/single-bench.sh spectral/hartel/ida ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh spectral/hartel/listcompr ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh spectral/hartel/listcopy ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}
 ./scripts/single-bench.sh spectral/hartel/nucleic2 ${MEASUREMENT_ITERATIONS} ${WARMUP_ITERATIONS}

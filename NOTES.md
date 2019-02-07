@@ -2,34 +2,21 @@
 
 This file contains notes about benchmarks.
 
-# Enabled
-
-
-# Disabled
+## Disabled
 
 The following were disabled because of exceeding the 4G memory limit on CircleCI:
 
-- `spectral/exact-reals` (Even on slow benchmarks)
+- `real/cacheprof`
+- `shootout/fasta`
+- `spectral/fish`
 
-- `imaginary/digits-of-e1`
-- `imaginary/digits-of-e2`
-- `spectral/clausify`
-- `spectral/constraints`
-- `shootout/pidigits`
-- `shootout/n-body`
+The following tests run too long (more than 2 hours) and have been moved into their own category (verySlow):
 
-The following were disabled because of taking too much time:
+- `verySlow shootout/k-nucleotide`
 
-- `spectral/circsim`
-- `smp/threads001`
+Note: Some of the test actually fail with an *unexpected output* failure. For now we run all tests with --skip-check (there is an open issue for this).
 
-The following were disabled because of failure:
-
-- `imaginary/integrate` - The output is coming out as `--0.0` instead of `0.0`.
-- `spectral/hartel/event` - The runtime fails with a space leak
-
-
-# Port Status from NoFib
+## Port Status from NoFib
 
 - `spectral/ansi` - Appears to require standard input (uses `interact`), but does not provide any input file.
 - `spectral/fft2` - Appears to have a wide variety of outputs - hard to test. May be that we have incorrect floating point results.

@@ -71,7 +71,6 @@ fast spectral/scc
 fast spectral/simple
 fast spectral/sorting
 fast spectral/treejoin
-slow shootout/k-nucleotide
 slow spectral/boyer
 slow spectral/circsim
 slow spectral/exact-reals
@@ -81,3 +80,4 @@ slow spectral/para
 slow spectral/primetest
 slow spectral/secretary
 slow spectral/sphere
+verySlow shootout/k-nucleotide
